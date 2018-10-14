@@ -16,10 +16,13 @@ class Login extends Component{
         this.setState({loading:true})
         e.preventDefault()
         const {auth} = this.state
+
+
+        console.log(auth)
         axios.post(url, auth)
         .then(res=>{
             console.log(res)
-            toastr.success("Te logueate!")
+            toastr.success("Te logueaste!")
             localStorage.setItem('user', JSON.stringify(res.data.user))
             localStorage.setItem('token', res.data.token)
             this.setState({loading:false})
@@ -28,7 +31,7 @@ class Login extends Component{
 
         })
         .catch(e=>{
-            toastr.error("no quiero tu cochinada")
+            toastr.error("Tu contraseña no es correcta")
             this.setState({loading:false})
             
         })

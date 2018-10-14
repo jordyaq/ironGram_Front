@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
-import logo from '../../logo.svg'
 import axios from 'axios'
 import toastr from 'toastr'
 import {uploadPic} from '../../services/userService'
+import {Menu, Icon} from 'antd';
+import {Link} from 'react-router-dom';
+
 
 
 class Profile extends Component{
@@ -41,17 +43,42 @@ class Profile extends Component{
     }
 
     render(){
-        const {user} = this.state
+
+       
         return(
-            <div>
-                <img style={{borderRadius:'50%'}} src={user.photoURL || logo} width="200" alt="user"/>
-                <h1>{user.username}</h1>
-                <p>{user.email}</p>
-                <button onClick={this.getPrivateInfo} >Bajate mi pack privado ;)</button>
-                <input accept="image/*" onChange={this.onChangeFile} ref="input" hidden type="file" />
-                <br/>
-                <img style={{cursor:"pointer"}} width="100" onClick={this.uploadPhoto} src="https://cdn.onlinewebfonts.com/svg/img_212908.png" />
-            </div>
+            <div style={{ width: 200, height:'100vh', textAlign: 'left', maxWidth: 200, minWidth: 250}}>
+    
+        <Menu>
+
+          
+
+          <Menu.Item key="/admin">
+            <Link to="/profile">
+              <Icon type="profile" /><span>Profile</span>
+            </Link>
+          </Menu.Item>
+
+          <Menu.Item key="/admin/users/new">
+            <Link to="">
+              <Icon type="plus-circle" theme="outlined"/><span>Nuevo Producto</span>
+            </Link>
+          </Menu.Item>
+            
+        <Menu.Item key="/admin/projects">
+            <Link to="/admin/projects" >
+              <Icon type="folder" /><span>Nuevos Clientes</span>
+            </Link>
+          </Menu.Item>
+
+          <Menu.Item onClick={this.logOut} key="/admin/logout">
+            <Link to="/">
+              <Icon type="poweroff" /> <span>Logout</span>
+            </Link>
+          </Menu.Item>
+
+        </Menu>          
+        
+           </div>
         )
     }
 }

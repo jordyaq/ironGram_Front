@@ -6,7 +6,7 @@ import axios from 'axios'
 class Signup extends Component{
 
     state = {
-        signup:{username:"pollollon"},
+        signup:{username:"Tu nombre"},
         loading:false
     }
 
@@ -22,12 +22,12 @@ class Signup extends Component{
         e.preventDefault()
         const {signup} = this.state
         if(signup.password !== signup.password2) {
-            return toastr.error('Escribe bien hijo!')
+            return toastr.error('No coincide tu contraseña')
         }
         axios.post('http://localhost:3000/signup', signup)
         .then(user=>{
             console.log(user)
-            toastr.success("hey! lo lograte!")
+            toastr.success("¡Ya puedes ingresar!")
         })
         .catch(e=>toastr.error("No pitufa"))
     }
