@@ -1,49 +1,59 @@
 import React, {Component} from 'react'
-import { Icon } from 'antd';
-import { Menu } from 'antd';
+import {Link} from 'react-router-dom'
 
 
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
-
-
-class navBar extends Component{
+class navBar extends Component {
     state = {
         current: "mail"
     }
-        render() {
-            return(
-        <div>
-        <Menu
-            onClick={this.handleClick}
-            selectedKeys={[this.state.current]}
-            mode="horizontal"
-        >
-        <Menu.Item key="mail">
-            <Icon type="mail" />Navigation One
-        </Menu.Item>
-        <Menu.Item key="app" disabled>
-            <Icon type="appstore" />Navigation Two
-        </Menu.Item>
-        <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />Navigation Three - Submenu</span>}>
-            <MenuItemGroup title="Item 1">
-                <Menu.Item key="setting:1">Option 1</Menu.Item>
-                <Menu.Item key="setting:2">Option 2</Menu.Item>
-            </MenuItemGroup>
-            <MenuItemGroup title="Item 2">
-                <Menu.Item key="setting:3">Option 3</Menu.Item>
-                <Menu.Item key="setting:4">Option 4</Menu.Item>
-            </MenuItemGroup>
-        </SubMenu>
-            <Menu.Item key="alipay">
-            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-            </Menu.Item>
-        </Menu>
-        </div>
+    render() {
+        return(
+
+            
+            <div class="container">
+            
+                <div class="nav">
+
+
+                    <div class="logo">
+                    <Link to="jyf"><img src="https://res.cloudinary.com/jordynube/image/upload/v1539643119/TohueTohue/img/logoweb.png" alt="Logo"/> </Link>
+                    </div>
+            
+                    <div>
+                    <nav class="navbar">
+                        <ul>
+                        <li><Link to="/">Inicio</Link></li>
+                        |
+                        <li><Link to="/mezcal">El mezcal</Link></li>
+                        |
+                        <li><Link to="/artesanias">Artesanias</Link></li>
+                        |
+                        <li><Link to="/equipo">El equipo</Link></li>
+                        |
+                        <li><Link to="/historia">Nuestra Historia</Link></li>
+                        |
+                        <li><Link to="/premios">Premios</Link></li>
+                        |
+                        <li><Link to="/tienda">Tienda</Link></li>
+                        |
+                        <li><Link to="/contacto">Contacto</Link></li>
+                        |
+                        <li><Link to="/contacto">English</Link></li>
+                        </ul>
+                    </nav>
+                    </div>
+                </div>
+                    <hr/>
+            </div>
+
+  
+
+    
+
+        
             )
     }
 }
 
 export default navBar
-
